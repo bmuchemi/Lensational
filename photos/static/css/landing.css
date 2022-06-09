@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body {
+    background-color: black;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    color: white;
+}
+
+h6 {
+    color: white;
+}
+
+.fa-camera-retro:hover {
+    color: yellow;
+}

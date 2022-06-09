@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% load static %}
+
+<!--  -->
+{% block content %} {{block.super}}
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg ">
+        <div class="col-sm-4 col-md-4 navbar-left">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% for location in locations %}
+                    <a class="dropdown-item" href="/location/{{location.city}}">{{location.city}}</a>{% endfor %}
+                </div>
+            </div>
+        </div>
+
+<div class="block">
+    {% for photo in pictures %}
+    <div class="row col-md-6">
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalLong{{photo.id}}">
+                    <div class="gallery">
+                        <div class="gallery-item" data-toggle="modal">
+                            <img src="{{photo.image.url}}" alt="" class="gallery-image">
+                            <div class="gallery-item-info">
+                                <ul>
+                                    <li class="gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags" aria-hidden="true"></i> {{photo.category}} </li>
+                                    <li class="gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack" aria-hidden="true"></i> {{photo.location}} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        </button>
+    </div>
+        {% endfor %}
+</div>
+    
+  
+  <!-- Modal -->
+  {% for photo in pictures %}
+  <div class="modal fade" id="exampleModalLong{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" style="background:black">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="background:black" >
+      <div class="modal-content" style="background: #874000">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="color:white">{{photo.title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src="{{photo.image.url}}" alt="{{item.name}}" class="img-responsive" width="300" height="300">
+            <p class="text-center" style="color:white">{{photo.description}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal" style="background:black">Close</button>
+            <input type="text" value="http://127.0.0.1:8000/{{photo.image.url}}" id="myInput" style="background:black">
+            <button onclick="myFunction()" onmouseout="outFunc()" data-toggle="tooltip" title="copied!" style="background:black">Copy text</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+<!-- <div class="block">
+    <div class="row">
+
+        <div class="gallery">
+            {% for photo in pictures %}
+            <div class="gallery-item" data-toggle="modal">
+                <img src="{{photo.image.url}}" alt="" class="gallery-image">
+                <div class="gallery-item-info">
+                        <li class="gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags" aria-hidden="true"></i> {{photo.category}} </li>
+                        <li class="gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack" aria-hidden="true"></i> {{photo.location}} </li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div> -->
+{% endblock %}{% block scripts %} {{block.super}}
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}

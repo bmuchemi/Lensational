@@ -1,0 +1,34 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "postgresql",
+            "username": "bmuchemi",
+            "password": "BENJA9262",
+            "name": "lensational"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "lensational",
+            "database": "postgresql",
+            "username": "bmuchemi",
+            "password": ""
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "lensational",
+            "database": "postges",
+            "username": "bmuchemi",
+            "password": "BENJA9262"
+        }
+    ]
+}

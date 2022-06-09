@@ -1,0 +1,45 @@
+{% load bootstrap3 %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lensational </title>
+
+    <!--  -->
+    {% block styles %} {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">{% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <h1 class="text-center">LENSATIONAL</h1>
+            <h6 class="text-center">PHOTO GALLERY</h6>
+            <ul class="list-inline list-unstyled text-center">
+                <li class="list-inline-item">
+                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                </li>
+
+                <li class="list-inline-item">
+                    <a href="{% url 'display' %}" class="text-light">
+                        <i class="fa fa-camera-retro fa-4x"></i>
+                    </a>
+                </li>
+
+                <li class="list-inline-item">
+                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--  -->
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %} {% endblock %}
+</body>
+
+</html>

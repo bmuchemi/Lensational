@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="block">
+    <div class="row">
+        {% if locations %}
+        <h2> Found {{locations|length }} items for the term '{{message}}' </h2>
+        {% else %}
+        <h2> Found 0 results '{{message}}' </h2>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="gallery">
+            {% if locations %} {% for item in locations %}
+            <div class="gallery-item" tabindex="0">
+                <img src="{{item.image.url}}" class="gallery-image" alt="">
+                <div class="gallery-item-info">
+                    <ul>
+                        <li class="gallery-item-likes"><span class="visually-hidden"></span><i class="fa fa-tags fa-2x" aria-hidden="true"></i> {{item.category}} </li>
+                        <li class="gallery-item-comments"><span class="visually-hidden"></span><i class="fa fa-thumb-tack fa-2x" aria-hidden="true"></i> {{item.location}} </li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %} {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

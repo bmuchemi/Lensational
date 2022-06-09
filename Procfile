@@ -1,0 +1,1 @@
+web: gunicorn lensational.wsgi --log-file -
